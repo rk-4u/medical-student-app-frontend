@@ -32,7 +32,7 @@ const Login = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       setLoading(true)
-      const response = await axios.post('http://localhost:5000/api/auth/google-login', { 
+      const response = await axios.post('https://medical-student-app-backend.onrender.com/api/auth/google-login', { 
         token: credentialResponse.credential 
       })
       const { token, user } = response.data

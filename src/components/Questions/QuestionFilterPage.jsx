@@ -80,24 +80,24 @@ export default function QuestionFilterPage() {
         const headers = { Authorization: `Bearer ${token}` };
 
         // Fetch all questions
-        const allQuestionsRes = await axios.get(`http://localhost:5000/api/questions${baseQP}`, { headers });
+        const allQuestionsRes = await axios.get(`https://medical-student-app-backend.onrender.com/api/questions${baseQP}`, { headers });
         const allQuestions = allQuestionsRes.data || [];
         setQuestions(allQuestions);
 
         // Fetch used questions
-        const usedQuestionsRes = await axios.get(`http://localhost:5000/api/questions${baseQP}&status=used`, { headers });
+        const usedQuestionsRes = await axios.get(`https://medical-student-app-backend.onrender.com/api/questions${baseQP}&status=used`, { headers });
         const usedQuestions = usedQuestionsRes.data || [];
 
         // Fetch correct questions
-        const correctQuestionsRes = await axios.get(`http://localhost:5000/api/questions${baseQP}&correct=true`, { headers });
+        const correctQuestionsRes = await axios.get(`https://medical-student-app-backend.onrender.com/api/questions${baseQP}&correct=true`, { headers });
         const correctQuestions = correctQuestionsRes.data || [];
 
         // Fetch incorrect questions
-        const incorrectQuestionsRes = await axios.get(`http://localhost:5000/api/questions${baseQP}&correct=false`, { headers });
+        const incorrectQuestionsRes = await axios.get(`https://medical-student-app-backend.onrender.com/api/questions${baseQP}&correct=false`, { headers });
         const incorrectQuestions = incorrectQuestionsRes.data || [];
 
         // Fetch flagged questions
-        const flaggedQuestionsRes = await axios.get(`http://localhost:5000/api/questions${baseQP}&flagged=true`, { headers });
+        const flaggedQuestionsRes = await axios.get(`https://medical-student-app-backend.onrender.com/api/questions${baseQP}&flagged=true`, { headers });
         const flaggedQuestions = flaggedQuestionsRes.data || [];
 
         // Compute unused questions
@@ -235,7 +235,7 @@ export default function QuestionFilterPage() {
     };
 
     // Send request to create test
-    const res = await axios.post("http://localhost:5000/api/tests", payload, {
+    const res = await axios.post("https://medical-student-app-backend.onrender.com/api/tests", payload, {
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
     });
 

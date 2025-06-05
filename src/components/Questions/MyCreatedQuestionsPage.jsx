@@ -14,7 +14,7 @@ const MyCreatedQuestionsPage = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/questions", {
+        const response = await axios.get("https://medical-student-app-backend.onrender.com/api/questions", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setQuestions(response.data);

@@ -172,7 +172,7 @@ const TestRunnerPage = () => {
     setSubmitting(true);
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/questions/${currentQuestion._id}/interaction`,
+        `https://medical-student-app-backend.onrender.com/api/questions/${currentQuestion._id}/interaction`,
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -214,7 +214,7 @@ const TestRunnerPage = () => {
     const interaction = userAnswers[currentQuestionIndex];
     try {
       await axios.put(
-        `http://localhost:5000/api/questions/${currentQuestion._id}/interaction`,
+        `https://medical-student-app-backend.onrender.com/api/questions/${currentQuestion._id}/interaction`,
         { testId: testSessionId, note: interaction.note },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -237,7 +237,7 @@ const TestRunnerPage = () => {
         if (index !== -1) {
           const payload = { testId: testSessionId, selectedAnswer: null, isFlagged: userAnswers[index].isFlagged };
           await axios.put(
-            `http://localhost:5000/api/questions/${id}/interaction`,
+            `https://medical-student-app-backend.onrender.com/api/questions/${id}/interaction`,
             payload,
             { headers: { Authorization: `Bearer ${token}` } }
           );
@@ -248,7 +248,7 @@ const TestRunnerPage = () => {
           }));
         }
       }
-      await axios.post(`http://localhost:5000/api/tests/${testSessionId}/submit`, {}, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.post(`https://medical-student-app-backend.onrender.com/api/tests/${testSessionId}/submit`, {}, { headers: { Authorization: `Bearer ${token}` } });
       sessionStorage.removeItem(`highlights_${testSessionId}`);
       sessionStorage.removeItem(`struck_${testSessionId}`);
       sessionStorage.removeItem("testData");
@@ -262,7 +262,7 @@ const TestRunnerPage = () => {
 
   const handleCancelTest = async () => {
     try {
-      await axios.post(`http://localhost:5000/api/tests/${testSessionId}/cancel`, {}, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.post(`https://medical-student-app-backend.onrender.com/api/tests/${testSessionId}/cancel`, {}, { headers: { Authorization: `Bearer ${token}` } });
       sessionStorage.removeItem(`highlights_${testSessionId}`);
       sessionStorage.removeItem(`struck_${testSessionId}`);
       sessionStorage.removeItem("testData");

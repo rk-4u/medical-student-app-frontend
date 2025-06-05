@@ -173,7 +173,7 @@ const CreateQuestion = () => {
       let mediaUrls = [];
 
       if (mediaType === 'file' && uploadedFiles.length) {
-        const { data } = await axios.get('http://localhost:5000/api/upload/signature', {
+        const { data } = await axios.get('https://medical-student-app-backend.onrender.com/api/upload/signature', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -310,7 +310,7 @@ const CreateQuestion = () => {
         difficulty: formData.difficulty,
         sourceUrl: formData.sourceUrl || '',
       };
-      await axios.post('http://localhost:5000/api/questions', submissionData, {
+      await axios.post('https://medical-student-app-backend.onrender.com/api/questions', submissionData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSuccessMessage('Question created successfully!');

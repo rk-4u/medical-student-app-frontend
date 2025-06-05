@@ -17,17 +17,17 @@ export const AuthProvider = ({ children }) => {
   }
 
   const login = async (email, password) => {
-    const response = await axios.post('http://localhost:5000/api/auth/login', { email, password })
+    const response = await axios.post('https://medical-student-app-backend.onrender.com/api/auth/login', { email, password })
     const { token, user } = response.data
     setAuth(token, user)
   }
 
   const signup = async (fullName, username, email, password) => {
-    await axios.post('http://localhost:5000/api/auth/signup', { fullName, username, email, password })
+    await axios.post('https://medical-student-app-backend.onrender.com/api/auth/signup', { fullName, username, email, password })
   }
 
   const verifyOtp = async (email, otp) => {
-    const response = await axios.post('http://localhost:5000/api/auth/verify-otp', { email, otp })
+    const response = await axios.post('https://medical-student-app-backend.onrender.com/api/auth/verify-otp', { email, otp })
     const { token, user } = response.data
     setAuth(token, user)
   }

@@ -20,7 +20,7 @@ const TestResultPage = () => {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/tests/${testId}`, {
+        const response = await axios.get(`https://medical-student-app-backend.onrender.com/api/tests/${testId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTest(response.data);

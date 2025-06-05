@@ -30,7 +30,7 @@ const OtpVerification = () => {
   const handleResendOtp = async () => {
     try {
       setLoading(true)
-      await axios.post('http://localhost:5000/api/auth/resend-otp', { email })
+      await axios.post('https://medical-student-app-backend.onrender.com/api/auth/resend-otp', { email })
       setError('OTP resent to your email')
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to resend OTP')
